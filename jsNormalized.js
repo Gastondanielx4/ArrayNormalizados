@@ -9,7 +9,18 @@ const MyDeformedArray = [
     {"firstName":"Alesha Doe", "title":"Newbie","buttontext":"Add Oil","icon": "https://reqres.in/img/faces/8-image.jpg"},
     {"firstName":"Jonas Uala", "title":"Lier","buttontext":"View Text", "icon": "https://reqres.in/img/faces/11-image.jpg"}
 ]
-const MyStudents = MyArray.concat(MyDeformedArray);
+
+let arrayTransformado = MyDeformedArray.map(obj => {
+    let objT = {};
+    objT['name'] = obj.firstName;
+    objT['title'] = obj.title;
+    objT['buttontext'] = obj.buttontext;
+    objT['avatar'] = obj.icon;
+    return objT;
+})
+
+const MyStudents = MyArray.concat(arrayTransformado);
+
 console.log(MyStudents);
 
 const divPrincipal = document.querySelector('#divCards')
